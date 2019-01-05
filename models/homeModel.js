@@ -1,0 +1,1 @@
+const dbHandler = require('../dbHandler/database.js');
