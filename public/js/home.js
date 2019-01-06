@@ -22,12 +22,6 @@ const finalTableFunc = id => {
     }).catch(err => console.error(err));
 }
 
-const buildHeader = headers => {
-	for(let i of headers){
-		$("#navbar-ul").append(`<li class="nav-item" id="${i.headers_Id}"><a class="nav-link" href="/${i.headers_Id}"><span>${i.Header_Tab_Display_Name}</span></a></li>`);	
-	}
-};
-
 const buildFirstTab = data => {
 	for(let i of data){
 		let id = i.Main_Tab_Num + "_firstTab";
@@ -75,12 +69,7 @@ const buildFinalTable = data => {
 }
 
 $(document).ready(function(){
-	let url1 = window.location.href + "headers";
-	fetch(url1).then(response=>response.json()).then(response=>{
-		buildHeader(response);	 
-    }).catch(err => console.error(err));
-
-    let url2 = window.location.href + "mainTab";
+	let url2 = window.location.href + "mainTab";
     fetch(url2).then(response=>response.json()).then(response=>{
 		buildFirstTab(response);	 
     }).catch(err => console.error(err));
