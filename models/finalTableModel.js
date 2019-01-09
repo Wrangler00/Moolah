@@ -4,6 +4,7 @@ const mainTabNum = "Main_Tab_Num";
 const secondTabNum = "Sec_Tab_Num";
 
 exports.getFinalTable = (option1 ,option2 ,option3) => {
+	option3 = option3.toLowerCase();
 	let query1 = `SELECT * FROM ${finalTableTitles} WHERE (${mainTabNum} = ${option1} AND ${secondTabNum} = ${option2})`;
 	let query2 = `SELECT * FROM ${option3}`;
 

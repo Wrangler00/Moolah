@@ -43,21 +43,20 @@ const buildThirdTab = data => {
 		$("#thirdTab").append(`<li class="nav-item" id = "${id}"><a class="nav-link active" data-toggle="tab" href="javascript:finalTableFunc('${id}')" role="tab" aria-controls="${id2}" aria-selected="true"><span>${i.Third_Tab_Display}</span></a></li>`);
 	}
 }
-
-const buildFinalTable = data => {
-	$("#datatable tr").remove();
-
-	let titles = data.titles;
-	let details = data.details;
-
-	$("#datatable-thead").append(`<tr id="datatable-tr"></tr>`);
-	for(let key in titles){
-		if(titles.hasOwnProperty(key)){
-			$("#datatable-tr").append(`<th id="${key}">${titles[key]}</th>`);
+const appendTableHeader = data =>{
+	let rows="";
+	for(let key in data){
+		if(data.hasOwnProperty(key)){
+			rows +=`<th id="${key}">${data[key]}</th>`;
 		}
 	}
+	$("#__tableBody").append(`<table id="datatable"class="table table-striped table-bordered dt-responsive nowrap" style="width:100%"><thead id="datatable-thead"><tr id="datatable-tr">${rows}</tr></thead><tbody id="tableBody"></tbody></table>`);
+	console.log(rows);
+}
+const appendDataRow = data =>{
+	$('#tableBody').empty();
 
-	for(let i of details){
+	for(let i of data){
 		let row = "";
 		for(let key in i){
 			if(i.hasOwnProperty(key) && key != "Symbol_ID" && key != "Symbol_Link"){
@@ -66,10 +65,20 @@ const buildFinalTable = data => {
 		}
 		$("#tableBody").append("<tr>"+row+"</tr>");
 	}
+	tableStructureDraw();
+}
+const buildFinalTable = data => {
+	
+
+	let titles = data.titles;
+	let details = data.details;
+
+	//$("#datatable-thead").append(`</tr>`);
+	$.when(appendTableHeader(titles)).then(appendDataRow(details));
 }
 
 $(document).ready(function(){
-	let url2 = window.location.href + "mainTab";
+    let url2 = window.location.href + "mainTab";
     fetch(url2).then(response=>response.json()).then(response=>{
 		buildFirstTab(response);	 
     }).catch(err => console.error(err));
@@ -90,3 +99,9 @@ $(document).ready(function(){
 		buildFinalTable(response);
     }).catch(err => console.error(err));
 });
+
+function tableStructureDraw() {
+	$('#datatable').DataTable({
+		 pagingType: "full_numbers"
+	});
+}

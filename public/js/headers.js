@@ -1,6 +1,6 @@
 const buildHeader = headers => {
 	for(let i of headers){
-		$("#navbar-ul").append(`<li class="nav-item" id="${i.headers_Id}"><a class="nav-link" href="/${i.headers_Id}"><span>${i.Header_Tab_Display_Name}</span></a></li>`);	
+		$("#navbar-ul").append(`<li class="nav-item" id="${i.headers_Id}"><a class="nav-link" href="#"><span>${i.Header_Tab_Display_Name}</span></a></li>`);	
 	}
 };
 

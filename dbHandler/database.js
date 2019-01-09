@@ -12,10 +12,11 @@ const third_tab_table = "b_stock_third_tab";
 const headers_table = "b_stock_header_links";
 
 mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'moolah'
+    host: "db4free.net",//'localhost',
+    //port: "3306",
+    user: 'wrangler',//'root',
+    password: '123456789',//'root',
+    database: 'wrangler'//'moolah'
 }).then(conn=>{
 	connect = conn;
 	console.log("Connection successful to database");
@@ -26,23 +27,6 @@ mysql.createConnection({
 exports.getData = query => {
 	return connect.query(query);
 }
-// exports.getHeaders = () => {
-// 	return connect.query(`SELECT * FROM ${headers_table}`);
-// }
 
-// exports.getFirstTab = () => {
-// 	return connect.query(`SELECT ${Main_Tab_Display_Name} FROM ${main_tab_table}`);
-// }
-
-// exports.getSecondTab = option => {
-// 	option = option || 1;
-// 	return connect.query(`SELECT ${Sec_Tab_Display_Name} FROM ${second_tab_table} WHERE ${Main_Tab_Num} = ${option}`);
-// }
-
-// exports.getThirdTab = (option1,option2) => {
-// 	option1 = option1 || 1;
-// 	option2 = option2 || 1;
-// 	return connect.query(`SELECT ${Third_Tab_Display} FROM ${third_tab_table} WHERE (${Main_Tab_Num} = ${option1} AND ${Sec_Tab_Num} = ${option2})`);
-// }
 
 
