@@ -1,4 +1,4 @@
-const PORT = 3005;
+const PORT = process.env.PORT || 8080;
 const express = require('express');
 const http = require('http');
 const app = express();

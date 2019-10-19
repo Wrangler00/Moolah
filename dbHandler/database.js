@@ -15,8 +15,8 @@ mysql.createConnection({
     host: "db4free.net",//'localhost',
     //port: "3306",
     user: 'wrangler',//'root',
-    password: '123456789',//'root',
-    database: 'wrangler'//'moolah'
+    password: '987654321',//'root',
+    database: 'moolah'//'moolah'
 }).then(conn=>{
 	connect = conn;
 	console.log("Connection successful to database");

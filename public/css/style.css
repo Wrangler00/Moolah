@@ -1,0 +1,82 @@
+    body{
+        overflow-x: hidden;
+    }
+    .wrapper 
+    {
+        padding: 10px;
+        padding-top: 0px;
+    }
+
+    .symbol_wrapper 
+    {
+        padding: 10px;
+        padding-bottom: 160px;
+    }
+
+   .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+        background-color: rgb(240,240,240);   
+    }
+    
+    #divLoading
+    {
+        display : none;
+    }
+    #divLoading.show
+    {
+        display : block;
+        position : fixed;
+        z-index: 100;
+        background-image : url('../images/loadergif.gif');
+        background-color:#666;
+        opacity : 0.4;
+        background-repeat : no-repeat;
+        background-position : center;
+        left : 0;
+        bottom : 0;
+        right : 0;
+        top : 0;
+    }
+    #loadinggif.show
+    {
+        left : 50%;
+        top : 50%;
+        position : absolute;
+        z-index : 101;
+        width : 32px;
+        height : 32px;
+        margin-left : -16px;
+        margin-top : -16px;
+    }
+
+    #navbar-ul li{
+        padding-left: 46px;
+        padding-right: 0px;
+    }
+
+    #navbar-ul span{
+        font-size: 18px;
+    }
+
+    .menuPlusAdd {
+        width: 100%;
+        float: left;
+    }
+
+    .menu-wrapper{
+        float: left;
+        width:calc(100% - 250px);
+    }
+
+    .amazon-ads {
+        width: 250px;
+        float: left;
+        height: auto;
+    }
+
+    .tab-content{
+         clear: both;
+    }
+
+    #__tableBody {
+        clear: both;
+    }
