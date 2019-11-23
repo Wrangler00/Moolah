@@ -12,10 +12,10 @@ const third_tab_table = "b_stock_third_tab";
 const headers_table = "b_stock_header_links";
 
 mysql.createConnection({
-    host: "db4free.net",//'localhost',
+    host: "localhost",
     //port: "3306",
-    user: 'wrangler',//'root',
-    password: '987654321',//'root',
+    user: 'moolah',//'root',
+    password: 'moolah@123',//'root',
     database: 'moolah'//'moolah'
 }).then(conn=>{
 	connect = conn;

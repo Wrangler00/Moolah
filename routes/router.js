@@ -7,6 +7,7 @@ const allTabs = require('../controllers/allTabsController');
 const symbolController = require('../controllers/symbolController');
 
 router.get('/',(req,res)=>res.render('home.html'));
+router.get('/ping',(req,res)=>res.send('pong'));
 router.get('/headers',(req,res) => headers.getHeaders(res));
 router.get('/header/:headerId',(req,res)=>res.render('skeleton.html',{id:req.params.headerId}));
 router.get('/favicon.ico', (req, res) => res.status(204));
